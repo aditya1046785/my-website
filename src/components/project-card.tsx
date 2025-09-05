@@ -25,8 +25,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
     if (href === '#') {
       e.preventDefault();
       setIsModalOpen(true);
-    } else {
-        window.location.href = href;
     }
   };
 
@@ -42,7 +40,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
       <div className="mt-auto pt-6">
         {href === '#' ? (
-          <Button variant="ghost" size="sm" className="w-full justify-start px-0 text-sm text-muted-foreground hover:bg-transparent hover:text-foreground">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="w-full justify-start px-0 text-sm text-muted-foreground hover:bg-transparent hover:text-foreground"
+            onClick={() => setIsModalOpen(true)}
+          >
             View Details
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
@@ -63,7 +66,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div
         onClick={handleCardClick}
         className={cn(
-          "group relative flex h-full cursor-pointer flex-col rounded-lg bg-card p-6 shadow-elevated transition-transform duration-300 ease-out hover:-translate-y-1"
+          "group relative flex h-full flex-col rounded-lg bg-card p-6 shadow-elevated transition-transform duration-300 ease-out hover:-translate-y-1",
+          href === '#' ? 'cursor-pointer' : 'cursor-default'
         )}
       >
         <div className="absolute inset-[-1px] z-[-1] rounded-[9px] bg-gradient-to-b from-[#333333] to-[#222222] transition-all duration-300 group-hover:from-accent/50 group-hover:to-accent/20" />
