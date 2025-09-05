@@ -30,9 +30,6 @@ export function About() {
                  <div className="absolute inset-[-2px] z-[-1] rounded-full bg-gradient-to-b from-accent/50 to-accent/20" />
               </div>
               <h2 className="mb-2 text-2xl">About Me</h2>
-              <p className="text-sm text-muted-foreground">
-                A brief look into my background and skills.
-              </p>
             </div>
 
             <div className="md:col-span-2">
