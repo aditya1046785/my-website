@@ -20,7 +20,7 @@ export function Hero() {
           Full-Stack Developer & AI Enthusiast
         </p>
         <h1 className="mb-6 text-5xl md:text-6xl lg:text-7xl">
-          <TypingAnimation phrases={H1_PHRASES} />
+          <TypingAnimation phrases={H1_PHRASES} typingSpeed={80} deletingSpeed={40} />
         </h1>
         <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
           With years of experience in crafting high-quality digital experiences, I specialize in building intelligent, user-centric applications. My focus is on combining clean design with powerful AI functionalities to create tools that are not only useful but also a pleasure to use.
