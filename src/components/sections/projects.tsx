@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { filterProjectsAction } from '@/app/actions';
 import { Search } from 'lucide-react';
+import { getIconByName } from '@/lib/data';
 
 export function Projects() {
   const [projects, setProjects] = useState<Project[]>(initialProjects);
@@ -20,11 +21,17 @@ export function Projects() {
         setProjects(initialProjects);
         return;
       }
-      const filteredProjects = await filterProjectsAction({
+      const filteredProjectsResult = await filterProjectsAction({
         projects: initialProjects,
         keywords,
       });
-      setProjects(filteredProjects);
+
+      const filteredProjectsWithIcons = filteredProjectsResult.map(p => ({
+        ...p,
+        Icon: getIconByName(p.icon),
+      })).filter(p => p.Icon);
+
+      setProjects(filteredProjectsWithIcons as Project[]);
     });
   };
 

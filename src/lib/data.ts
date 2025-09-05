@@ -54,3 +54,15 @@ export const projects: Project[] = [
     href: '#',
   },
 ];
+
+const iconMap: Record<string, ComponentType<{ className?: string }>> = {
+  ResumeIcon,
+  ChatIcon,
+  FileIcon,
+  EyeIcon,
+  BoltIcon,
+};
+
+export function getIconByName(name: string): ComponentType<{ className?: string }> {
+  return iconMap[name] || FileIcon;
+}
