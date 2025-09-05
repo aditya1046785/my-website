@@ -7,6 +7,7 @@ import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
 import { ProjectDetailModal } from './project-detail-modal';
+import Link from 'next/link';
 
 type ProjectCardProps = {
   project: Project;
@@ -40,10 +41,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
         ))}
       </div>
       <div className="mt-auto pt-6">
-        <Button variant="ghost" size="sm" className="w-full justify-start px-0 text-sm text-muted-foreground hover:bg-transparent hover:text-foreground">
-          {href === '#' ? 'View Details' : 'Launch Tool'}
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
+        {href === '#' ? (
+          <Button variant="ghost" size="sm" className="w-full justify-start px-0 text-sm text-muted-foreground hover:bg-transparent hover:text-foreground">
+            View Details
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        ) : (
+          <Link href={href} target="_blank" rel="noopener noreferrer" className="block">
+            <Button variant="ghost" size="sm" className="w-full justify-start px-0 text-sm text-muted-foreground hover:bg-transparent hover:text-foreground">
+              Launch Tool
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+        )}
       </div>
     </>
   );
