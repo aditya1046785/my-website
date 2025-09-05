@@ -18,7 +18,7 @@ export const projects: Project[] = [
     description: 'Guides users to articulate impact with structured prompts and ATS-ready export.',
     Icon: ResumeIcon,
     tech: ['Next.js', 'TypeScript', 'OpenAI'],
-    href: '/resume-crafter',
+    href: 'https://resume-craft-ai.cerecrafts.in/',
     span: 'col-span-2',
   },
   {
