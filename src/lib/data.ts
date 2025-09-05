@@ -28,6 +28,7 @@ export const projects: Project[] = [
     Icon: ChatIcon,
     tech: ['React', 'LLMs', 'RAG'],
     href: '#',
+    span: 'col-span-1',
   },
   {
     id: 'doc-summarizer',
@@ -36,6 +37,7 @@ export const projects: Project[] = [
     Icon: FileIcon,
     tech: ['Vercel', 'Embeddings'],
     href: '#',
+    span: 'col-span-1',
   },
   {
     id: 'vision-notes',
@@ -44,6 +46,7 @@ export const projects: Project[] = [
     Icon: EyeIcon,
     tech: ['Vision', 'Next.js'],
     href: '#',
+    span: 'col-span-1',
   },
   {
     id: 'auto-scripts',
@@ -52,6 +55,7 @@ export const projects: Project[] = [
     Icon: BoltIcon,
     tech: ['Node', 'CLI'],
     href: '#',
+    span: 'col-span-1',
   },
 ];
 

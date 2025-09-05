@@ -63,13 +63,10 @@ export function Projects() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div
               key={project.id}
-              className={
-                project.span ??
-                (index < 2 ? 'lg:col-span-1' : '')
-              }
+              className={project.span}
             >
               <ProjectCard project={project} />
             </div>
