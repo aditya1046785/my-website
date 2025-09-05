@@ -38,10 +38,13 @@ export function About() {
             <div className="md:col-span-2">
               <div className="space-y-6 text-muted-foreground">
                 <p>
-                  Hello! I'm a passionate developer and designer with a keen eye for detail and a drive for creating polished, impactful digital products. My journey in tech has been fueled by a fascination with the power of AI and its potential to solve real-world problems.
+                  Hello! I'm Aditya , a Computer Science student with a core belief: the best way to understand technology is to build with it. My fascination isn't just with the theory of AI, but with its practical application in creating clean, fast, and thoughtful software.
                 </p>
                 <p>
-                  I thrive in environments that value both technical excellence and thoughtful user experience. From architecting scalable backends to designing intuitive interfaces, I am committed to delivering software that is not only functional but also delightful to use.
+                  This portfolio is a showcase of that philosophy. Each project here is a tool I've built to solve a real-world problem, combining intelligent design with powerful AI functionalities. My focus is on delivering experiences that are not only useful but also a pleasure to use.
+                </p>
+                 <p>
+                  I'm on a journey to build impactful digital products, one line of code at a time.
                 </p>
                 <div className="space-y-4 rounded-lg border border-border/50 bg-background/50 p-6">
                   <h4 className="font-semibold text-foreground">Core Skills</h4>
