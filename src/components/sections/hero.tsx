@@ -19,7 +19,7 @@ export function Hero() {
         <p className="mb-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
           Full-Stack Developer & AI Enthusiast
         </p>
-        <h1 className="mb-6 bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-5xl text-transparent md:text-6xl lg:text-7xl [-webkit-background-clip:text]">
+        <h1 className="mb-6 text-5xl md:text-6xl lg:text-7xl">
           <TypingAnimation phrases={H1_PHRASES} />
         </h1>
         <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
