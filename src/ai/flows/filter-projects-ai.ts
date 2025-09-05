@@ -39,10 +39,13 @@ const FilterProjectsOutputSchema = z.array(ProjectSchema);
 export type FilterProjectsOutput = z.infer<typeof FilterProjectsOutputSchema>;
 
 export async function filterProjects(input: FilterProjectsInput): Promise<FilterProjectsOutput> {
-  const projectsWithIconNames = input.projects.map(project => ({
-    ...project,
-    icon: project.Icon.name,
-  }));
+  const projectsWithIconNames = input.projects.map(project => {
+    const { Icon, ...rest } = project;
+    return {
+      ...rest,
+      icon: Icon.name,
+    };
+  });
   return filterProjectsFlow({ ...input, projects: projectsWithIconNames });
 }
 
