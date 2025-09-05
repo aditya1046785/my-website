@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="border-t border-border/50">
       <Container className="flex h-16 items-center justify-center">
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Neon Architect. All rights reserved.
+          &copy; {new Date().getFullYear()} cerecrafts. All rights reserved.
         </p>
       </Container>
     </footer>

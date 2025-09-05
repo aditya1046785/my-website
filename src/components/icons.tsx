@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils';
 
 export const Logo = ({ className }: { className?: string }) => (
   <div className={cn('font-headline text-lg font-bold tracking-tight text-foreground', className)}>
-    Neon Architect<span className="text-accent">.</span>
+    cerecrafts<span className="text-accent">.</span>
   </div>
 );
 

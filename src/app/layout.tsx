@@ -4,13 +4,13 @@ import { cn } from '@/lib/utils';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'Neon Architect — Full‑Stack Developer & AI Enthusiast',
+  title: 'cerecrafts — Full‑Stack Developer & AI Enthusiast',
   description: 'A world‑class personal portfolio built with Next.js that mirrors Linear.app’s crisp, minimal, high‑contrast aesthetic while showcasing AI‑powered projects.',
   openGraph: {
-    title: 'Neon Architect — Full‑Stack Developer & AI Enthusiast',
+    title: 'cerecrafts — Full‑Stack Developer & AI Enthusiast',
     description: 'A world‑class personal portfolio built with Next.js that mirrors Linear.app’s crisp, minimal, high‑contrast aesthetic while showcasing AI‑powered projects.',
     url: 'https://your-domain.com',
-    siteName: 'Neon Architect',
+    siteName: 'cerecrafts',
     images: [
       {
         url: 'https://your-domain.com/og-image.png',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Neon Architect — Full‑Stack Developer & AI Enthusiast',
+    title: 'cerecrafts — Full‑Stack Developer & AI Enthusiast',
     description: 'A world‑class personal portfolio built with Next.js that mirrors Linear.app’s crisp, minimal, high‑contrast aesthetic while showcasing AI‑powered projects.',
     creator: '@your_twitter_handle',
     images: ['https://your-domain.com/twitter-image.png'],
