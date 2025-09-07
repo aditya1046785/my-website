@@ -30,7 +30,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   const CardContent = () => (
     <>
-      <Icon className="mb-4 h-8 w-8 text-muted-foreground" />
+      <div className="flex items-start justify-between">
+        <Icon className="mb-4 h-8 w-8 text-muted-foreground" />
+        {href === '#' && <Tag>Coming Soon</Tag>}
+      </div>
       <h3 className="mb-2 text-lg font-semibold text-foreground">{title}</h3>
       <p className="mb-4 line-clamp-2 text-sm text-muted-foreground">{description}</p>
       <div className="flex flex-wrap gap-2">
