@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -14,8 +15,6 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
-import { contactFormAction } from '@/app/actions';
 import { Loader2 } from 'lucide-react';
 
 const formSchema = z.object({
@@ -25,7 +24,7 @@ const formSchema = z.object({
 });
 
 export function ContactForm() {
-  const { toast } = useToast();
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -35,26 +34,26 @@ export function ContactForm() {
     },
   });
 
-  const { isSubmitting } = form.formState;
-
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setStatus('submitting');
+    
     try {
-      const result = await contactFormAction(values);
-      if (result.success) {
-        toast({
-          title: 'Message Sent!',
-          description: "Thanks for reaching out. I'll get back to you soon.",
-        });
+      const response = await fetch('https://formspree.io/f/xpwjkrdd', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        setStatus('success');
         form.reset();
       } else {
-        throw new Error(result.error || 'An unexpected error occurred.');
+        setStatus('error');
       }
     } catch (error) {
-      toast({
-        variant: 'destructive',
-        title: 'Uh oh! Something went wrong.',
-        description: error instanceof Error ? error.message : 'There was a problem with your request.',
-      });
+      setStatus('error');
     }
   }
 
@@ -72,6 +71,7 @@ export function ContactForm() {
                   <Input 
                     placeholder="Your Name" 
                     {...field}
+                    name="name"
                     className="bg-background focus:ring-accent focus:ring-offset-0 focus:ring-2"
                   />
                 </FormControl>
@@ -90,6 +90,7 @@ export function ContactForm() {
                     placeholder="your.email@example.com"
                     type="email"
                     {...field}
+                    name="email"
                     className="bg-background focus:ring-accent focus:ring-offset-0 focus:ring-2"
                   />
                 </FormControl>
@@ -107,6 +108,7 @@ export function ContactForm() {
                   <Textarea
                     placeholder="Tell me about your project or idea..."
                     {...field}
+                    name="message"
                     className="min-h-[120px] bg-background focus:ring-accent focus:ring-offset-0 focus:ring-2"
                   />
                 </FormControl>
@@ -116,13 +118,19 @@ export function ContactForm() {
           />
           <Button
             type="submit"
-            disabled={isSubmitting}
+            disabled={status === 'submitting'}
             className="group relative w-full bg-gradient-to-b from-zinc-800 to-zinc-900 text-foreground transition-transform duration-200 hover:-translate-y-0.5 disabled:opacity-50"
           >
-             {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+             {status === 'submitting' && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             <div className="absolute inset-0 rounded-lg border border-white/10 transition-all duration-200 group-hover:border-white/20" />
-            {isSubmitting ? 'Sending...' : 'Submit'}
+            {status === 'submitting' ? 'Sending...' : 'Submit'}
           </Button>
+          {status === 'success' && (
+            <p className="text-center text-green-600 mt-4">Thank you for your message!</p>
+          )}
+          {status === 'error' && (
+            <p className="text-center text-red-600 mt-4">Something went wrong. Please try again.</p>
+          )}
         </form>
       </Form>
     </div>
